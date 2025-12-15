@@ -1,18 +1,21 @@
 # DevOps Blast Radius Analyzer
 
-An AI-powered DevOps change reviewer that predicts risk, blast radius,
-and rollback steps before production changes are applied.
+This project demonstrates the use of the company AI tool to analyze
+DevOps changes and predict potential blast radius before production rollout.
 
-## Problem
-DevOps changes often cause production incidents because teams do not
-understand the blast radius of their changes.
+## What it does
+- Accepts a DevOps change (YAML/config)
+- Sends it to the company AI model using a constrained DevOps prompt
+- Receives structured risk analysis, checks, and rollback strategy
 
-## Solution
-This tool uses a company-provided AI model as a constrained DevOps reviewer
-to analyze proposed changes and provide structured risk analysis.
+## Why AI is used
+DevOps change risk assessment depends on experience.
+This tool uses AI as a virtual senior DevOps reviewer to standardize
+and automate that analysis.
 
-## MVP Scope
-- Input: DevOps change (YAML / pipeline / config)
-- Output: Risk level, impact, checks, rollback
-
-🚧 MVP under development
+## How to run
+1. Configure company AI credentials
+2. Update sample change file
+3. Run:
+   ```bash
+   python analyze_change.py
