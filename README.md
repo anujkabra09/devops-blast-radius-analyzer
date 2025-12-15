@@ -14,8 +14,48 @@ This tool uses AI as a virtual senior DevOps reviewer to standardize
 and automate that analysis.
 
 ## How to run
-1. Configure company AI credentials
-2. Update sample change file
-3. Run:
+
+### Quick Start
+
+1. **Activate virtual environment** (if using one):
    ```bash
-   python analyze_change.py
+   source venv/bin/activate
+   ```
+
+2. **Set your API key**:
+   ```bash
+   export AI_API_KEY='your-api-key-here'
+   ```
+
+3. **Run the analyzer**:
+   ```bash
+   ./run_analyzer.sh
+   # OR
+   python3 analyze_change.py
+   ```
+
+### Setup Instructions
+
+See [`SETUP.md`](SETUP.md) for detailed installation and configuration instructions.
+
+## Security
+
+⚠️ **Important**: This project uses environment variables for API key management. Never commit API keys to version control.
+
+- API keys are loaded from the `AI_API_KEY` environment variable
+- The `.gitignore` file is configured to exclude sensitive files
+- See [`SECURITY_INCIDENT.md`](SECURITY_INCIDENT.md) for security best practices
+
+## Supported AI Providers
+
+The analyzer automatically detects and uses available AI SDKs in this order:
+1. **BoB AI** (company's AI service) - Priority
+2. **IBM watsonx**
+3. **OpenAI**
+4. **Anthropic Claude**
+
+Install the SDK for your preferred provider and set the appropriate API key.
+
+## Testing
+
+A mock BoB module (`bob.py`) is included for testing purposes. Replace it with the actual BoB SDK when available from your AI team.
